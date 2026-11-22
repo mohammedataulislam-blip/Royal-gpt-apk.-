@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Royal GPT</string>
+    <string name="brand_wordmark">ROYAL GPT</string>
+    <string name="brand_tagline">Sovereign Intelligence. Crafted for Clarity.</string>
+    <string name="splash_initializing">Initializing Secure Workspace</string>
+    <string name="welcome_badge">LUXURY AI WORKSPACE</string>
+    <string name="welcome_headline">Command Intelligence With Elegance</string>
+    <string name="welcome_subtitle">A private, cloud-synced sanctuary for writing, code architecture, multimodal vision, and structured thought.</string>
+    <string name="action_login">Login</string>
+    <string name="action_create_account">Create Account</string>
+    <string name="action_continue_google">Continue with Google</string>
+    <string name="auth_login_title">Welcome Back</string>
+    <string name="auth_register_title">Claim Your Access</string>
+    <string name="auth_email_label">Email Address</string>
+    <string name="auth_password_label">Password</string>
+    <string name="auth_confirm_password_label">Confirm Password</string>
+    <string name="auth_name_label">Full Name</string>
+    <string name="auth_forgot_password">Forgot Password?</string>
+    <string name="auth_email_verification_title">Email Verification Architecture</string>
+    <string name="auth_email_verification_body">Email verification and password recovery flows are architected and ready. Sign in instantly with Google Credential Manager, or enable Email/Password in Firebase Console to activate direct email sign-in.</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_chat">AI Chat</string>
+    <string name="nav_tools">AI Tools</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_settings">Settings</string>
+    <string name="dashboard_recent_conversations">Recent Conversations</string>
+    <string name="dashboard_quick_actions">Command Suite</string>
+    <string name="chat_input_placeholder">Message Royal GPT…</string>
+    <string name="chat_new_conversation">New Conversation</string>
+    <string name="chat_history_title">Conversation History</string>
+    <string name="chat_stage_notice">Your message is saved securely to Cloud Firestore. Live Gemini AI inference will be connected in the next integration stage.</string>
+    <string name="settings_about_title">About Royal GPT</string>
+    <string name="settings_about_version">Version 1.0.0 • Native Android</string>
+    <string name="action_logout">Sign Out</string>
+</resources>

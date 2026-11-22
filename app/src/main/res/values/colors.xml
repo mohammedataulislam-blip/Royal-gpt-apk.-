@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="obsidian_black">#05070D</color>
+    <color name="royal_blue">#1D4ED8</color>
+    <color name="neon_blue">#38BDF8</color>
+    <color name="subtle_emerald">#10B981</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

@@ -1,0 +1,6 @@
+{
+  "name": "Royal GPT",
+  "description": "A luxury native Android AI assistant workspace built with Kotlin, Jetpack Compose, Material 3, and Firebase-ready MVVM architecture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

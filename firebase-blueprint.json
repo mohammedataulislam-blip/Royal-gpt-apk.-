@@ -1,0 +1,171 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Authenticated user profile, preferences, and verification-ready account metadata.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID matching the document path userId."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name shown on dashboard and profile."
+        },
+        "email": {
+          "type": "string",
+          "description": "Primary email address associated with the user account."
+        },
+        "photoUrl": {
+          "type": "string",
+          "description": "Optional profile photo URL from identity provider."
+        },
+        "emailVerified": {
+          "type": "boolean",
+          "description": "Indicates whether the account email is verified."
+        },
+        "authProvider": {
+          "type": "string",
+          "enum": ["google", "email_pending"],
+          "description": "Active identity provider identifier."
+        },
+        "darkThemeEnabled": {
+          "type": "boolean",
+          "description": "User preference for dark luxury theme."
+        },
+        "notificationsEnabled": {
+          "type": "boolean",
+          "description": "User preference for workspace notifications."
+        },
+        "saveHistoryEnabled": {
+          "type": "boolean",
+          "description": "User privacy preference for retaining conversation history."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when profile was created (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when profile was updated (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "displayName",
+        "email",
+        "emailVerified",
+        "authProvider",
+        "darkThemeEnabled",
+        "notificationsEnabled",
+        "saveHistoryEnabled",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Conversation": {
+      "title": "Conversation",
+      "description": "A user-owned AI conversation thread stored under users/{userId}/conversations.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Owner Firebase Auth UID."
+        },
+        "title": {
+          "type": "string",
+          "description": "Conversation title."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["CHAT", "IMAGE", "VOICE", "WRITING", "CODING", "TRANSLATION", "SUMMARIZATION", "LEARNING", "VISION"],
+          "description": "Mode or AI tool category for the conversation."
+        },
+        "lastMessagePreview": {
+          "type": "string",
+          "description": "Preview of the latest message in the thread."
+        },
+        "messageCount": {
+          "type": "integer",
+          "description": "Number of persisted messages in the thread."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of thread creation (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of latest update (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "title",
+        "category",
+        "lastMessagePreview",
+        "messageCount",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Individual message inside a user's conversation thread.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Owner Firebase Auth UID."
+        },
+        "conversationId": {
+          "type": "string",
+          "description": "Parent conversation document ID."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["USER", "SYSTEM_NOTICE"],
+          "description": "Author role for the message."
+        },
+        "content": {
+          "type": "string",
+          "description": "Message text content."
+        },
+        "attachmentLabel": {
+          "type": "string",
+          "description": "Optional image attachment display label or URI metadata."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of message creation (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "conversationId",
+        "role",
+        "content",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Owner-only user profile and settings document."
+    },
+    "/users/{userId}/conversations/{conversationId}": {
+      "schema": { "$ref": "#/entities/Conversation" },
+      "description": "User-scoped conversation threads."
+    },
+    "/users/{userId}/conversations/{conversationId}/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/ChatMessage" },
+      "description": "Messages belonging to a user's conversation thread."
+    }
+  }
+}
